@@ -3,11 +3,55 @@
     <head>
         <meta charset="utf-8">
         <title>Калькулятор слоеных салатов</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <div class="app">
-            {{ message }}
+        <div class="container">
+            <div class="app">
+                <h2>Калькулятор слоеных салатов</h2>
+                <button type="button" class="btn btn-primary"
+                @click="addLayer">Добавить слой
+                </button>
+                <div class="row mt-3">
+                    <div class="col col-sm-6">
+                        <div class="salad">
+                            <div class="layer" v-for="(layer, i) in layers"
+                                :class="'layer-' + layer.type"
+                                :style="{height: layer.height * 10 + 'px'}"
+                                @click="changeHeight(i, 1)"
+                                @contextmenu.prevent="changeHeight(i, -1)"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="col col-sm-6">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Тип</th>
+                                <th>Высота</th>
+                                <th>Действия</th>
+                            </tr>
+                            <tr v-for="(layer, i) in layers">
+                                <td>
+                                    <select class="form-control"
+                                        v-model="layers[i].type">
+                                        <option :value="key"
+                                            v-for="(lt, key) in layersTypes">
+                                            {{ lt.label }}
+                                        </option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text"
+                                         class="form-control"
+                                         v-model.number="layers[i].height">
+                                </td>
+                                <td>3</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="js/script.js"></script>

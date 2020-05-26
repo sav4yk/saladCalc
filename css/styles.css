@@ -1,0 +1,38 @@
+.salad {
+    border: 2px solid green;
+}
+
+.layer{
+    transition: height 0.5s;
+    border-top: 1px solid green;
+}
+
+.layer-beet {
+    background: url(../img/beet.jpg);
+}
+.layer-herring {
+    background: url(../img/herring.jpg);
+}
+.layer-carrot {
+    background: url(../img/carrot.jpg);
+}
+.layer-potato {
+    background: url(../img/potato.jpg);
+}
+.layer-chickenEggYolk {
+    background: url(../img/chickenEggYolk.jpg);
+}
+.layer-chickenEggGlair {
+    background: url(../img/chickenEggGlair.jpg);
+}
+.layer-garlic {
+    background: url(../img/garlic.jpg);
+}
+.layer-mayo {
+    background: url(../img/mayo.jpg);
+}
+
+.price {
+    font-size: 26px;
+    margin-right: 40px;
+}
