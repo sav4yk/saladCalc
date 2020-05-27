@@ -40,14 +40,26 @@ new Vue({
         defaultHeight: 5
     },
     computed: {
-
+        price() {
+            let sum = 0;
+            this.layers.forEach((layer) => {
+                sum += layer.height * this.layersTypes[layer.type].priceOneSm;
+            });
+            return sum;
+        },
+        hasLayers() {
+            return this.layers.length > 0
+        }
     },
     methods: {
-        addLayer(){
+        addLayer() {
             this.layers.push({
                 type: this.defaultLayerType,
                 height: this.defaultHeight
             });
+        },
+        deleteLayer(i) {
+            this.layers.splice(i, 1);
         },
         changeHeight(i, dh) {
             this.layers[i].height += dh;
